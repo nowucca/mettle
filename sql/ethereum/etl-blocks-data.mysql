@@ -1,0 +1,16 @@
+USE `ethereum_etl`;
+
+LOAD DATA LOCAL INFILE 'sample-blocks.csv'
+  REPLACE
+  INTO TABLE `blocks`
+  -- PARTITION p0, p100000, p200000, ...
+  COLUMNS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+  IGNORE 1 LINES;
+
+--  Example
+-- LOAD DATA LOCAL INFILE 'output/blocks/start_block=00000000/end_block=00099999/blocks_00000000_00099999.csv' 
+-- REPLACE INTO TABLE `blocks` 
+-- COLUMNS TERMINATED BY ',' 
+-- LINES TERMINATED BY '\n' 
+-- IGNORE 1 LINES;

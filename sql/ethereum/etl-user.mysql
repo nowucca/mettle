@@ -1,0 +1,11 @@
+--
+-- NOTE: to start up mysql with native authentication
+--       mysql.server start --default-authentication-plugin=mysql_native_password
+--
+DROP SCHEMA IF EXISTS `ethereum_etl` ;
+CREATE SCHEMA IF NOT EXISTS `ethereum_etl` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+USE `ethereum_etl` ;
+
+DROP USER IF EXISTS 'etl'@'localhost';
+CREATE USER IF NOT EXISTS 'etl'@'localhost' IDENTIFIED WITH mysql_native_password BY 'etl';
+GRANT ALL PRIVILEGES ON ethereum_etl.* TO 'etl'@'localhost';
