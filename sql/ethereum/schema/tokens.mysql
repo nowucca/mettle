@@ -1,0 +1,17 @@
+USE mettle_ethereum;
+
+DROP TABLE IF EXISTS `tokens`;
+
+CREATE TABLE `tokens` (
+    address 	TEXT,
+    symbol 	TEXT,
+    name 	TEXT,
+    decimals 	BIGINT,
+    total_supply 	DECIMAL(38,0),
+    PRIMARY KEY (address),
+    INDEX token_symbols_i1(symbol)
+) 
+ENGINE = InnoDB
+PARTITION BY LINEAR KEY()
+PARTITIONS 64;
+

@@ -1,36 +1,19 @@
-USE ethereum_etl;
---
--- Drop tables in reverse order of their creation
---
+USE mettle_ethereum;
 
-DROP TABLE IF EXISTS `blocks`;
+DROP TABLE IF EXISTS `token_transfers`;
 
---
--- Table structure for table `blocks`
---
-
-CREATE TABLE `blocks` (
-    number BIGINT PRIMARY KEY,
-    hash TEXT,
-    parent_hash TEXT,
-    nonce TEXT,
-    sha3_uncles TEXT,
-    logs_bloom TEXT,
-    transactions_root TEXT,
-    state_root TEXT,
-    receipts_root TEXT,
-    miner TEXT,
-    difficulty DECIMAL(38,0),
-    total_difficulty DECIMAL(38,0),
-    size BIGINT,
-    extra_data TEXT,
-    gas_limit BIGINT,
-    gas_used BIGINT,
-    timestamp BIGINT,
-    transaction_count BIGINT
+CREATE TABLE `token_transfers` (
+    token_address TEXT,
+    from_address TEXT,
+    to_address TEXT,
+    value 	DECIMAL(38,0),
+    transaction_hash 	TEXT,
+    log_index 	BIGINT,
+    block_number 	BIGINT,
+    PRIMARY KEY (transaction_hash, block_number)
 ) 
 ENGINE = InnoDB
-PARTITION BY RANGE (number) (
+PARTITION BY RANGE (block_number) (
     PARTITION p0 VALUES LESS THAN (100000),
     PARTITION p1 VALUES LESS THAN (200000),
     PARTITION p2 VALUES LESS THAN (300000),

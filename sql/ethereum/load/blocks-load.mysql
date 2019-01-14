@@ -8,6 +8,14 @@ LOAD DATA LOCAL INFILE 'sample-blocks.csv'
   LINES TERMINATED BY '\n'
   IGNORE 1 LINES;
 
+-- 
+-- Generate partitions and load commands for lots of files:
+--
+-- for f in $(find extracted/blocks -name '*.csv' | sort ); 
+-- do 
+--     echo "LOAD DATA LOCAL INFILE '$f' REPLACE INTO TABLE \`blocks\` COLUMNS TERMINATED BY ',' LINES TERMINATED BY '\\n' IGNORE 1 LINES;"
+-- done
+
 --  Example
 -- LOAD DATA LOCAL INFILE 'output/blocks/start_block=00000000/end_block=00099999/blocks_00000000_00099999.csv' 
 -- REPLACE INTO TABLE `blocks` 

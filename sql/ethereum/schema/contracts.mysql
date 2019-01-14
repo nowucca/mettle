@@ -1,0 +1,17 @@
+USE mettle_ethereum;
+
+DROP TABLE IF EXISTS `contracts`;
+
+CREATE TABLE `contracts` (
+    address 	TEXT,
+    bytecode 	TEXT,
+    function_sighashes 	TEXT,
+    is_erc20 	BOOLEAN,
+    is_erc721 	BOOLEAN
+    PRIMARY KEY (address)
+) 
+ENGINE = InnoDB
+PARTITION BY LINEAR KEY()
+PARTITIONS 64;
+
+
