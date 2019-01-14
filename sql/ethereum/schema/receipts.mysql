@@ -3,14 +3,14 @@ USE mettle_ethereum;
 DROP TABLE IF EXISTS `receipts`;
 
 CREATE TABLE `receipts` (
-    transaction_hash 	TEXT,
+    transaction_hash 	VARCHAR(66),
     transaction_index 	BIGINT,
-    block_hash 	TEXT,
+    block_hash 	VARCHAR(66),
     block_number 	BIGINT,
     cumulative_gas_used 	BIGINT,
     gas_used 	BIGINT,
-    contract_address 	TEXT,
-    root 	TEXT,
+    contract_address 	VARCHAR(42),
+    root 	VARCHAR(66),
     status 	BIGINT,
     PRIMARY KEY (transaction_hash, block_number)
 ) 

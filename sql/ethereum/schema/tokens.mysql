@@ -3,8 +3,8 @@ USE mettle_ethereum;
 DROP TABLE IF EXISTS `tokens`;
 
 CREATE TABLE `tokens` (
-    address 	TEXT,
-    symbol 	TEXT,
+    address 	VARCHAR(42),
+    symbol 	VARCHAR(64),
     name 	TEXT,
     decimals 	BIGINT,
     total_supply 	DECIMAL(38,0),

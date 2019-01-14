@@ -3,11 +3,11 @@ USE mettle_ethereum;
 DROP TABLE IF EXISTS `token_transfers`;
 
 CREATE TABLE `token_transfers` (
-    token_address TEXT,
-    from_address TEXT,
-    to_address TEXT,
+    token_address VARCHAR(42),
+    from_address VARCHAR(42),
+    to_address VARCHAR(42),
     value 	DECIMAL(38,0),
-    transaction_hash 	TEXT,
+    transaction_hash 	VARCHAR(66),
     log_index 	BIGINT,
     block_number 	BIGINT,
     PRIMARY KEY (transaction_hash, block_number)

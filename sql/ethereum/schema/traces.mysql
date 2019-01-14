@@ -3,20 +3,20 @@ USE mettle_ethereum;
 DROP TABLE IF EXISTS `traces`;
 
 CREATE TABLE `traces` (
-    block_number 	bigint,
-    transaction_hash 	TEXT,
-    transaction_index 	bigint,
-    from_address 	TEXT,
-    to_address 	TEXT ,
+    block_number 	BIGINT,
+    transaction_hash 	VARCHAR(66),
+    transaction_index 	BIGINT,
+    from_address 	VARCHAR(42),
+    to_address 	VARCHAR(42),
     value 	DECIMAL(38,0),
     input 	TEXT,
     output 	TEXT,
     trace_type 	TEXT,
     call_type 	TEXT,
     reward_type 	TEXT,
-    gas 	bigint,
-    gas_used 	bigint,
-    subtraces 	bigint,
+    gas 	BIGINT,
+    gas_used 	BIGINT,
+    subtraces 	BIGINT,
     trace_address 	TEXT,
     error 	TEXT,
     PRIMARY KEY (transaction_hash, block_number)

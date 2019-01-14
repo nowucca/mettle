@@ -3,12 +3,12 @@ USE mettle_ethereum;
 DROP TABLE IF EXISTS `contracts`;
 
 CREATE TABLE `contracts` (
-    address 	TEXT,
+    address 	VARCHAR(48),
     bytecode 	TEXT,
     function_sighashes 	TEXT,
     is_erc20 	BOOLEAN,
-    is_erc721 	BOOLEAN
-    PRIMARY KEY (address)
+    is_erc721 	BOOLEAN,
+    PRIMARY KEY (address) -- 40 hex chars plus 0x for two
 ) 
 ENGINE = InnoDB
 PARTITION BY LINEAR KEY()
