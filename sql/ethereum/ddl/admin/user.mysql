@@ -1,0 +1,3 @@
+DROP USER IF EXISTS 'eth'@'%';
+CREATE USER IF NOT EXISTS 'eth'@'%' IDENTIFIED WITH mysql_native_password BY 'eth';
+GRANT ALL PRIVILEGES ON mettle_ethereum.* TO 'eth'@'%';

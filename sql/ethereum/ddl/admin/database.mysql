@@ -1,0 +1,3 @@
+DROP SCHEMA IF EXISTS `mettle_ethereum` ;
+CREATE SCHEMA IF NOT EXISTS `mettle_ethereum` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+USE `mettle_ethereum` ;

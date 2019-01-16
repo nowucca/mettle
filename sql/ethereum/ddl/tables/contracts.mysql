@@ -6,8 +6,8 @@ CREATE TABLE `contracts` (
     address 	VARCHAR(48),
     bytecode 	TEXT,
     function_sighashes 	TEXT,
-    is_erc20 	BOOLEAN,
-    is_erc721 	BOOLEAN,
+    is_erc20 	VARCHAR(6),
+    is_erc721 	VARCHAR(6),
     PRIMARY KEY (address) -- 40 hex chars plus 0x for two
 ) 
 ENGINE = InnoDB

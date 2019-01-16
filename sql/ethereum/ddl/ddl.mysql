@@ -1,0 +1,12 @@
+USE mettle_ethereum;
+
+SOURCE admin/database.mysql;
+SOURCE admin/user.mysql;
+SOURCE tables/blocks.mysql;
+SOURCE tables/contracts.mysql;
+SOURCE tables/logs.mysql;
+SOURCE tables/receipts.mysql;
+SOURCE tables/token_transfers.mysql;
+SOURCE tables/tokens.mysql;
+SOURCE tables/traces.mysql;
+SOURCE tables/transactions.mysql;

@@ -6,8 +6,8 @@ CREATE TABLE `tokens` (
     address 	VARCHAR(42),
     symbol 	VARCHAR(64),
     name 	TEXT,
-    decimals 	BIGINT,
-    total_supply 	DECIMAL(38,0),
+    decimals 	TEXT, -- should be BIGINT but sometimes it is empty
+    total_supply 	TEXT,
     PRIMARY KEY (address),
     INDEX token_symbols_i1(symbol)
 ) 
